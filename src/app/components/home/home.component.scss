@@ -35,7 +35,7 @@ body.hovering .cursor-outline { width: 70px; height: 70px; background-color: rgb
   align-items: center; 
   justify-content: center; 
   overflow: hidden; 
-  color: white;
+  color: rgb(255, 255, 255);
   background-color: var(--bg-dark); // Color de respaldo mientras carga
 
   .hero-background {
@@ -57,7 +57,7 @@ body.hovering .cursor-outline { width: 70px; height: 70px; background-color: rgb
     .texture-overlay { 
       position: absolute; 
       inset: 0; 
-      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); 
+      background-image: radial-gradient(rgba(255, 255, 255, 0.193) 1px, transparent 1px); 
       background-size: 30px 30px; 
       opacity: 0.4; 
     }
@@ -66,13 +66,13 @@ body.hovering .cursor-outline { width: 70px; height: 70px; background-color: rgb
     .gradient-overlay { 
       position: absolute; 
       inset: 0; 
-      background: radial-gradient(circle at center, rgba(11, 14, 26, 0.4) 0%, rgba(11, 14, 26, 0.95) 100%);
+      background: radial-gradient(circle at center, rgba(11, 14, 26, 0.273) 0%, rgba(11, 14, 26, 0.373) 100%);
     }
   }
   .hero-content {
     position: relative; z-index: 2; text-align: center; max-width: 90%; padding: 20px;
     .badge-pill {
-      display: inline-flex; align-items: center; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 20px; backdrop-filter: blur(5px);
+      display: inline-flex; align-items: center; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.277); padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 20px; backdrop-filter: blur(5px);
       .dot { width: 8px; height: 8px; background-color: var(--primary); border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px var(--primary); }
     }
     .hero-title {
