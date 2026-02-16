@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap");
+
+:host {
+  --primary: #07b2c9;
+  --bg-dark: #0b0e1a;
+  --bg-footer: #263238;
+  --text-white: #ffffff;
+  
+  // VARIABLES CORREGIDAS
+  --card-height: 500px; 
+  --card-margin: 4vh; 
+  --card-top-offset: 25px; // Aumentado para que se note la escalera
+  --card-radius: 32px;
+  
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  // Quitamos overflow-x aquí porque a veces rompe el sticky en Safari
+}
+// --- CURSOR ---
+.cursor-dot, .cursor-outline {
+  position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none;
+}
+.cursor-dot { width: 8px; height: 8px; background-color: var(--primary); }
+.cursor-outline { width: 40px; height: 40px; border: 1px solid var(--primary); transition: width 0.2s, height 0.2s; }
+body.hovering .cursor-outline { width: 70px; height: 70px; background-color: rgba(7, 178, 201, 0.1); border-color: transparent; }
+
+// --- 1. MODERN HERO ---
+// --- 1. MODERN HERO (ACTUALIZADO) ---
+.modern-hero {
+  position: relative; 
+  height: 100vh; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden; 
+  color: white;
+  background-color: var(--bg-dark); // Color de respaldo mientras carga
+
+  .hero-background {
+    position: absolute; 
+    inset: 0; 
+    z-index: 0;
+    overflow: hidden; // Vital para que la imagen no se salga al hacer zoom
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      // Animación suave de zoom para que parezca video
+      animation: slow-zoom 20s infinite alternate ease-in-out;
+    }
+
+    // Trama de puntos (le da textura técnica)
+    .texture-overlay { 
+      position: absolute; 
+      inset: 0; 
+      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); 
+      background-size: 30px 30px; 
+      opacity: 0.4; 
+    }
+
+    // Degradado oscuro (para que el texto blanco resalte)
+    .gradient-overlay { 
+      position: absolute; 
+      inset: 0; 
+      background: radial-gradient(circle at center, rgba(11, 14, 26, 0.4) 0%, rgba(11, 14, 26, 0.95) 100%);
+    }
+  }
+  .hero-content {
+    position: relative; z-index: 2; text-align: center; max-width: 90%; padding: 20px;
+    .badge-pill {
+      display: inline-flex; align-items: center; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 20px; backdrop-filter: blur(5px);
+      .dot { width: 8px; height: 8px; background-color: var(--primary); border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px var(--primary); }
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px;
+      .gradient-text { background: linear-gradient(90deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    }
+    .hero-subtitle { font-size: clamp(1rem, 1.5vw, 1.3rem); font-weight: 300; opacity: 0.9; margin-bottom: 40px; }
+  }
+}
+// Nueva animación sutil
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); } // Crece un 15% suavemente
+}
+.cta-modern, .cta-button {
+  background: white; color: black; border: none; padding: 15px 35px; font-size: 1.1rem; border-radius: 50px; cursor: pointer; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s, box-shadow 0.3s;
+  &:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); }
+}
+
+// --- 2. STEAM DEFINITION ---
+.steam-definition-section {
+  padding: 80px 20px; background: #ffffff; display: flex; justify-content: center;
+  .glass-card-container {
+    background: #e2e2e2; color: rgb(0, 0, 0); border-radius: 40px; padding: 60px; max-width: 1200px; width: 100%; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    .glass-header {
+      margin-bottom: 50px;
+      h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 10px; }
+      p { opacity: 0.7; font-size: 1.2rem; }
+    }
+    .steam-grid {
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;
+      .steam-item {
+        display: flex; flex-direction: column; align-items: center; transition: transform 0.3s;
+        &:hover { transform: translateY(-10px); }
+        .letter { font-size: 2.5rem; font-weight: 900; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.2); border-radius: 50%; margin-bottom: 15px; }
+        .desc { text-transform: uppercase; font-weight: 700; font-size: 0.9rem; span { font-weight: 300; opacity: 0.7; display: block; text-transform: none;} }
+        &.color-s { color: #07b2c9; .letter { border-color: #07b2c9; } }
+        &.color-t { color: #f88718; .letter { border-color: #f88718; } }
+        &.color-e { color: #000000; .letter { border-color: #000000; } }
+        &.color-a { color: #4db046; .letter { border-color: #4db046; } }
+        &.color-m { color: #e8362d; .letter { border-color: #e8362d; } }
+      }
+    }
+  }
+}
+
+/* =========================================
+   REPARACIÓN STICKY CARDS (VERSIÓN CSS PURO)
+========================================= */
+.sticky-wrapper {
+  margin: 50px 0 150px; // Más margen abajo
+  width: 100%;
+}
+
+.sticky-header {
+  height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(to bottom, #000, #333);
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 0.2;
+    animation: fade-in-text linear both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+  }
+}
+@keyframes fade-in-text { to { opacity: 1; -webkit-text-stroke: 0; color: #000; } }
+
+#cards {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  
+  // IMPORTANTE: Ancho controlado para que no se estiren
+  width: 85%; 
+  
+  // Usamos grid simple para apilar filas
+  display: grid;
+  grid-template-rows: repeat(4, var(--card-height));
+  gap: var(--card-margin);
+  padding-bottom: calc(4 * var(--card-margin));
+
+  .card {
+    position: sticky;
+    top: 20vh; // Punto fijo donde se pegan
+    
+    // La magia de la escalera: cada tarjeta empieza un poco más abajo
+    padding-top: calc(var(--index) * var(--card-top-offset));
+    
+    perspective: 1000px;
+
+    &__content {
+      color: white;
+      border-radius: var(--card-radius);
+      height: var(--card-height);
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px; // Padding lateral
+      
+      box-shadow: 0 0 50px rgba(0,0,0,0.15); // Sombra más suave
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      
+      // Setup para la animación 3D
+      transform-origin: top center;
+      will-change: transform;
+      transform-style: preserve-3d;
+      
+      // Animación vinculada al scroll
+      animation: scale-card linear forwards;
+      animation-timeline: view();
+      // Ajuste fino: empieza a animarse cuando la tarjeta toca el tope y sale
+      animation-range: exit-crossing 0% exit-crossing 100%;
+    }
+  }
+}
+
+// Colores
+.card-1 .card__content { background: linear-gradient(135deg, #07b2c9, #058a9e); }
+.card-2 .card__content { background: linear-gradient(135deg, #f88718, #d16b0d); }
+.card-3 .card__content { background: linear-gradient(135deg, #4db046, #3a8535); }
+.card-4 .card__content { background: linear-gradient(135deg, #e8362d, #b52a23); }
+
+.card-text {
+  flex: 1; 
+  padding-right: 40px; 
+  z-index: 2;
+  h2 { font-size: clamp(2rem, 3vw, 3rem); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+  p { font-size: 1.15rem; opacity: 0.95; line-height: 1.5; font-weight: 400; }
+}
+
+.card-img {
+  flex: 1; 
+  height: 50%; // Evita que la imagen toque los bordes
+  border-radius: 30%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  
+  img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; 
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); 
+  }
+}
+
+.number {
+  position: absolute; top: 30px; right: 40px; font-size: 6rem; font-weight: 600; opacity: 0.15; font-family: "JetBrains Mono", monospace;
+}
+
+// LA ANIMACIÓN 3D
+@keyframes scale-card {
+  to {
+    transform: scale(0.9) translateY(-5%);
+    filter: brightness(0.7);
+    border-radius: 50px;
+  }
+}
+
+/* =========================================
+   4. UNIVERSE SECTION (Fixed SVG Size)
+========================================= */
+.universe-section {
+  padding: 100px 20px;
+  background: white;
+  text-align: center;
+  
+  h1 { font-size: 3.5rem; margin-bottom: 50px; color: #000; font-weight: 900; }
+  
+  .svg-container {
+    width: 100%;
+    // Aseguramos que el contenedor no sea diminuto
+    min-height: 400px; 
+    display: flex;
+    justify-content: center;
+    
+    svg {
+      width: 100%;
+      max-width: 1000px; // Límite de ancho para desktop
+      height: auto;
+      overflow: visible;
+      
+      text {
+        font-family: 'Nunito Sans', sans-serif; // Fuente global
+        transition: fill 0.3s ease;
+        cursor: default;
+        
+        // Estilos base para los textos del SVG
+        &.cat-title { font-weight: 900; font-size: 24px; fill: #333; }
+        &.sub-item { font-weight: 400; font-size: 16px; fill: #666; }
+        
+        &:hover { fill: var(--primary) !important; }
+      }
+    }
+  }
+}
+
+// --- 5. FINAL CTA & FOOTER ---
+.final-cta-section {
+  padding: 80px 20px; background: white;
+  .final-content { text-align: center; margin-bottom: 60px; h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; color: #000; margin-bottom: 30px; } .cta-button { background-color: var(--primary); color: white; margin: 0 auto; &:hover{background:white; color: var(--primary); border: 1px solid var(--primary);} } }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto;
+    .about-item { 
+      background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee;
+      h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; font-weight: 800; }
+      p { line-height: 1.6; color: #555; font-size: 1.1rem; }
+    }
+  }
+}
+
+.main-footer {
+  background-color: var(--bg-footer); color: white; padding: 60px 20px 20px;
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px;
+    .footer-brand { display: flex; align-items: center; gap: 15px; img { width: 40px; } h3 { font-size: 1.5rem; margin: 0; } }
+    .footer-socials { display: flex; gap: 15px; .social-btn { background: rgba(255,255,255,0.1); border: none; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; &:hover { background: var(--primary); } } }
+  }
+  .footer-links-container {
+    display: flex; justify-content: space-between; flex-wrap: wrap;
+    .link-column {
+      display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
+      strong { font-size: 1.2rem; margin-bottom: 10px; display: block; }
+      a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.2s; &:hover { color: var(--primary); } }
+      &.copyright { opacity: 0.5; font-size: 0.9rem; margin-top: 10px; }
+    }
+  }
+}
+
+// --- MEDIA QUERIES GLOBALES (MOBILE) ---
+@media (max-width: 768px) {
+  .steam-definition-section .glass-card-container { padding: 30px; }
+  .steam-grid { flex-direction: column; gap: 30px; .steam-item { flex-direction: row; gap: 20px; .desc { text-align: left; } .letter { width: 50px; height: 50px; font-size: 1.5rem; margin-bottom: 0; } } }
+  
+  // Sticky cards en movil
+  :host { --card-height: 75vh; }
+  .card__content { flex-direction: column-reverse; padding: 25px !important; text-align: center; justify-content: center; }
+  .card-text { padding-right: 0; margin-top: 20px; }
+  .card-img { height: 35%; width: 100%; margin-bottom: 10px; }
+  .number { font-size: 4rem; top: 10px; right: 10px; }
+
+  // Final section
+  .final-cta-section .about-grid { grid-template-columns: 1fr; }
+  
+  // Footer
+  .main-footer {
+    .footer-top { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links-container { flex-direction: column; gap: 30px; text-align: center; }
+  }
+}
+
+// Reveal Text (Utilidad)
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  .char { display: inline-block; white-space: pre; transform-origin: 50% 100%; will-change: transform, opacity; }
+}
+
+/* =========================================
+   MEDIA QUERIES (MOBILE RESPONSIVE)
+========================================= */
+@media (max-width: 768px) {
+  // En móvil desactivamos la altura fija para que quepa el texto
+  :host { --card-height: auto; }
+  
+  #cards { 
+    max-width: 90%; 
+    gap: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .card {
+    top: 15vh;
+    height: auto;
+    // Reducimos la escalera en móvil
+    padding-top: calc(var(--index) * 15px); 
+  }
+
+  .card__content {
+    flex-direction: column-reverse; // Imagen arriba, texto abajo
+    padding: 30px 20px !important;
+    text-align: center;
+    height: auto;
+    min-height: 450px; // Altura mínima segura
+  }
+  
+  .card-text { 
+    padding-right: 0; 
+    margin-top: 20px;
+  }
+  
+  .card-img { 
+    height: 180px; 
+    width: 100%; 
+    margin-bottom: 10px; 
+  }
+  
+  .number { font-size: 3rem; top: 15px; right: 15px; }
+  
+  .sticky-header h1 { font-size: 3rem; }
+}

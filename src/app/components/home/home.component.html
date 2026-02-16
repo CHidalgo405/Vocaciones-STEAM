@@ -1,0 +1,183 @@
+<app-preloader [isLoading]="isLoading" [progress]="loadingProgress"></app-preloader>
+
+<div class="smooth-scroll-wrapper">
+
+    <section class="modern-hero">
+        
+        <div class="hero-background">
+            <div class="hero-img" style="background-image: url('assets/steam-hero-bg.jpg');"></div>
+            <div class="texture-overlay"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="badge-pill"><span class="dot"></span> Vocaciones del Futuro</div>
+            <h1 class="hero-title reveal-text">TU POTENCIAL <br><span class="gradient-text">NO TIENE LÍMITES</span></h1>
+            <p class="hero-subtitle">Descubre la intersección entre la creatividad y la tecnología.</p>
+            <button class="cta-modern">Comenzar Ahora <lucide-icon name="rocket" size="20"></lucide-icon></button>
+        </div>
+    </section>
+
+    <section class="steam-definition-section">
+        <div class="glass-card-container">
+            <div class="glass-header">
+                <h2>¿Qué es <span class="steam-brand">STEAM</span>?</h2>
+                <p>Es el enfoque educativo que integra las disciplinas clave para la innovación global.</p>
+            </div>
+            <div class="steam-grid">
+                <div class="steam-item color-s"><div class="letter">S</div><div class="desc">Science<br><span>Ciencia</span></div></div>
+                <div class="steam-item color-t"><div class="letter">T</div><div class="desc">Technology<br><span>Tecnología</span></div></div>
+                <div class="steam-item color-e"><div class="letter">E</div><div class="desc">Engineering<br><span>Ingeniería</span></div></div>
+                <div class="steam-item color-a"><div class="letter">A</div><div class="desc">Arts<br><span>Artes</span></div></div>
+                <div class="steam-item color-m"><div class="letter">M</div><div class="desc">Math<br><span>Matemáticas</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sticky-wrapper">
+        <header class="sticky-header">
+            <h1>TU FUTURO <br> ES STEAM</h1>
+        </header>
+
+        <ul id="cards">
+            <li class="card card-1" style="--index: 1;">
+                <div class="card__content">
+                    <span class="number">01</span>
+                    <div class="card-text">
+                        <h2>No seas parte de la estadística.</h2>
+                        <p>Tu futuro no debería ser una moneda al aire. Déjanos guiarte en una experiencia inmersiva donde tus pasiones encuentran su propósito real.</p>
+                    </div>
+                    <div class="card-img">
+                         <img src="assets/img-1.png" alt="Estadística">
+                    </div>
+                </div>
+            </li>
+
+            <li class="card card-2" style="--index: 2;">
+                <div class="card__content">
+                    <span class="number">02</span>
+                    <div class="card-text">
+                        <h2>Una mente digital que te comprende.</h2>
+                        <p>Elegir carrera es una de las decisiones más grandes de tu vida. Olvida la confusión; estamos aquí para darte claridad.</p>
+                    </div>
+                    <div class="card-img">
+                        <img src="assets/img-2.jpg" alt="Mente Digital">
+                    </div>
+                </div>
+            </li>
+
+            <li class="card card-3" style="--index: 3;">
+                <div class="card__content">
+                    <span class="number">03</span>
+                    <div class="card-text">
+                        <h2>Tu próximo paso está cerca.</h2>
+                        <p>Imagina tener un mentor personal que entiende exactamente qué te apasiona. Nuestra tecnología analiza tu esencia.</p>
+                    </div>
+                    <div class="card-img">
+                        <img src="assets/img-3.png" alt="Camino">
+                    </div>
+                </div>
+            </li>
+
+            <li class="card card-4" style="--index: 4;">
+                <div class="card__content">
+                    <span class="number">04</span>
+                    <div class="card-text">
+                        <h2>Visualiza tu potencial.</h2>
+                        <p>Te conectamos con las mejores oportunidades académicas y universidades para convertirte en el líder del mañana.</p>
+                    </div>
+                    <div class="card-img">
+                        <img src="assets/img-4.png" alt="Potencial">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="universe-section">
+        <article> 
+            <h1 class="reveal-text">El Universo STEAM</h1>
+            <div class="svg-container"> 
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" class="cloud-svg">
+                    <style>
+                        .cloud-text { font-family: 'Nunito Sans', sans-serif; fill: #333; cursor: default; transition: fill 0.3s; }
+                        .cloud-text:hover { fill: #07b2c9; }
+                        .main-title { font-weight: 900; fill: #000; font-size: 60px; text-anchor: middle; }
+                        .cat-title { font-weight: 700; fill: #444; font-size: 24px; text-anchor: middle; }
+                        .sub-item { font-weight: 400; fill: #777; font-size: 16px; text-anchor: middle; }
+                        .bg-rect { fill: #000; }
+                        .steam-white { fill: #fff; font-weight: 900; font-size: 32px; text-anchor: middle; }
+                    </style>
+
+                    <rect x="300" y="220" width="200" height="60" rx="4" class="bg-rect" />
+                    <text x="400" y="262" class="steam-white">STEAM</text>
+
+                    <text x="400" y="150" class="cloud-text cat-title">TECNOLOGÍA</text>
+                    <text x="400" y="350" class="cloud-text cat-title">INGENIERÍA</text>
+                    <text x="150" y="260" class="cloud-text cat-title">CIENCIAS</text>
+                    <text x="650" y="260" class="cloud-text cat-title">ARTES</text>
+
+                    <text x="250" y="100" class="cloud-text sub-item">Física</text>
+                    <text x="180" y="140" class="cloud-text sub-item">Biotecnología</text>
+                    <text x="300" y="60" class="cloud-text sub-item">Astrofísica</text>
+                    <text x="100" y="200" class="cloud-text sub-item">Química</text>
+
+                    <text x="550" y="100" class="cloud-text sub-item">Innovación</text>
+                    <text x="650" y="140" class="cloud-text sub-item">Diseño UX/UI</text>
+                    <text x="500" y="60" class="cloud-text sub-item">Inteligencia Artificial</text>
+                    <text x="600" y="190" class="cloud-text sub-item">Programación</text>
+
+                    <text x="150" y="320" class="cloud-text sub-item">Robótica</text>
+                    <text x="250" y="380" class="cloud-text sub-item">Mecatrónica</text>
+                    <text x="180" y="420" class="cloud-text sub-item">Sistemas</text>
+                    <text x="300" y="450" class="cloud-text sub-item">Redes</text>
+
+                    <text x="550" y="380" class="cloud-text sub-item">Estadística</text>
+                    <text x="650" y="320" class="cloud-text sub-item">Matemáticas</text>
+                    <text x="500" y="450" class="cloud-text sub-item">Animación 3D</text>
+                    <text x="680" y="420" class="cloud-text sub-item">Videojuegos</text>
+                </svg>
+            </div>
+        </article>
+    </div>
+
+    <section class="final-cta-section">
+        <div class="final-content">
+            <h2 class="reveal-text">¿LISTO PARA DESCUBRIR <br>TU CAMINO?</h2>
+            <button class="cta-button">Comenzar Ahora</button>
+        </div>
+        <div class="about-grid">
+            <div class="about-item">
+                <h3>Sobre Eagle Code</h3>
+                <p>Somos un equipo multidisciplinario revolucionando la orientación profesional con tecnología Angular, NestJS y PostgreSQL.</p>
+            </div>
+            <div class="about-item">
+                <h3>Nuestra Misión</h3>
+                <p>Utilizamos IA híbrida para conectar sueños con oportunidades reales. Democratizamos el acceso a la información.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assets/3.gif" class="gif-steam" alt="STEAM">
+                <h3>Impulso STEAM</h3>
+            </div>
+            <div class="footer-socials">
+                <button class="social-btn"><lucide-icon name="facebook" size="24"></lucide-icon></button>
+                <button class="social-btn"><lucide-icon name="twitter" size="24"></lucide-icon></button>
+                <button class="social-btn"><lucide-icon name="instagram" size="24"></lucide-icon></button>
+                <button class="social-btn"><lucide-icon name="linkedin" size="24"></lucide-icon></button>
+            </div>
+        </div>
+        <div class="footer-links-container">
+            <div class="link-column"><strong>Empresa</strong><a href="#">Sobre nosotros</a><a href="#">Contacto</a></div>
+            <div class="link-column"><strong>Soporte</strong><a href="#">Ayuda</a><a href="#">Privacidad</a></div>
+            <div class="link-column copyright"><p>© 2026 Impulso STEAM.</p></div>
+        </div>
+    </footer>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
